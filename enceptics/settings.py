@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
 
     # local
     "authentication.apps.AuthenticationConfig",
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount", 
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    'rest_framework_swagger',
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -78,6 +80,7 @@ PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = \
 
 
 SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -111,8 +114,8 @@ WSGI_APPLICATION = 'enceptics.wsgi.application'
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-    ]
+        "rest_framework.authentication.TokenAuthentication",  
+            ]
 }
 
 
