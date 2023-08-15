@@ -76,6 +76,9 @@ AUTH_USER_MODEL = 'auth.User'
 ROOT_URLCONF = 'enceptics.urls'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+DATE_INPUT_FORMATS = ['%m/%d/%y %H:%M:%S',]
+USE_L10N = False
+
 '''
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "<your email host>"                    # smtp-relay.sendinblue.com
@@ -88,7 +91,11 @@ DEFAULT_FROM_EMAIL = "<your default from email>"    # email ending with @sendinb
 '''
 
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'username'
+# ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
+# ACCOUNT_LOGIN_SERIALIZER = 'enceptics.serializers.CustomLoginSerializer'
 
 
 # <EMAIL_CONFIRM_REDIRECT_BASE_URL>/<key>
@@ -191,7 +198,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
+MEDIA_URL = '/media/' # Public URL at the browser
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
